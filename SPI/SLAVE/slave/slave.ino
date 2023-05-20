@@ -52,7 +52,7 @@ uint8_t SPI_transfer(uint8_t byte_Out)
 
   while(READ_SS() == HIGH); // Nếu chân SS còn ở mức cao thì chương trình sẽ ko chạy
 
-  for(ibit=0x80;ibit>0;ibit>>1) //0x80 = 1000.0000
+  for(ibit=0x80;ibit>0;ibit=ibit>>1) //0x80 = 1000.0000
   {
     res = byte_Out & ibit;
     WRITE_MISO(res);
