@@ -76,7 +76,7 @@ uint8_t SPI_transfer(uint8_t byte_Out)
   uint8_t byte_In = 0; // 0000.0000
   uint8_t ibit,res;
 
-  for(ibit=0x80;ibit>0;ibit>>1) //0x80 = 1000.0000
+  for(ibit=0x80;ibit>0;ibit = ibit>>1) //0x80 = 1000.0000
   {
     res = byte_Out & ibit;
     WRITE_MOSI(res); // truyền dữ liệu 1 bit qua chân MOSI ,dữ liệu được gửi đi và giữ trong nguyên 1 chu kì SCK 
